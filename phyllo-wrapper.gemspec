@@ -22,4 +22,6 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
   end
+
+  spec.add_dependency "httparty", "~> 0.18.1"
 end
