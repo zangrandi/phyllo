@@ -1,7 +1,5 @@
 module PhylloWrapper
   class Client
-    BASE_URL = "https://api.sandbox.getphyllo.com/v1"
-
     class << self
       attr_accessor :configuration
 
@@ -13,19 +11,19 @@ module PhylloWrapper
       # TODO: Extract to classes
 
       def users(limit: 10, offset: 0)
-        get("users?limit=#{limit}&offset=#{offset}")
+        get("users?limit=#{limit}&offset=#{offset}")["data"]
       end
 
       def accounts(user_id: nil, limit: 10, offset: 0)
-        get("accounts?user_id=#{user_id}&limit=#{limit}&offset=#{offset}")
+        get("accounts?user_id=#{user_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
 
       def profiles(account_id: nil, limit: 10, offset: 0)
-        get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")
+        get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
 
       def contents(account_id: nil, limit: 10, offset: 0)
-        get("social/contents?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")
+        get("social/contents?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
 
       def user_by_external_id(external_id)
@@ -50,17 +48,25 @@ module PhylloWrapper
         }
       end
 
+      def base_url
+        if PhylloWrapper::Client.configuration.sandbox
+          "https://api.sandbox.getphyllo.com/v1"     
+        else
+          "https://api.getphyllo.com/v1"       
+        end
+      end
+
       def get(url)
-        HTTParty.get("#{BASE_URL}/#{url}", { headers: headers }).parsed_response["data"]
+        HTTParty.get("#{base_url}/#{url}", { headers: headers }).parsed_response
       end
 
       def post(url, body)
-        HTTParty.post("#{BASE_URL}/#{url}", { headers: headers , body: body.to_json})
+        HTTParty.post("#{base_url}/#{url}", { headers: headers , body: body.to_json})
       end
     end
 
     class Configuration
-      attr_accessor :api_key
+      attr_accessor :api_key, :sandbox
     end
   end
 end
