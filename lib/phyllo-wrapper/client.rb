@@ -38,6 +38,10 @@ module PhylloWrapper
         post("sdk-tokens", { user_id: user_id, products: products }).parsed_response
       end
 
+      def work_platforms(name: nil, limit: 10, offset: 0)
+        get("work-platforms?limit=#{limit}&offset=#{offset}&name=#{name}")["data"]
+      end
+
       private
 
       def headers
