@@ -59,7 +59,6 @@ module PhylloWrapper
         end
 
         get(url)
-
       end
 
       def delete_webhook(id:)
