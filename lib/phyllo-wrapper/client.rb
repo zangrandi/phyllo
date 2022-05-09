@@ -18,6 +18,10 @@ module PhylloWrapper
         get("accounts?user_id=#{user_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
 
+      def account(id:)
+        get("accounts/#{id}")
+      end
+
       def profiles(account_id: nil, limit: 10, offset: 0)
         get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
@@ -40,6 +44,29 @@ module PhylloWrapper
 
       def work_platforms(name: nil, limit: 10, offset: 0)
         get("work-platforms?limit=#{limit}&offset=#{offset}&name=#{name}")["data"]
+      end
+
+      def create_webhook(url:, events:)
+        post("webhooks", {url: url, events: events})
+      end
+
+      def retrieve_webhooks(id: nil, limit: 10 , offset: 0)
+        url = "webhooks"
+        if id.nil?
+          url+= "?limit=#{limit}&offset=#{offset}"
+        else
+          url+= "?id=#{id}"
+        end
+
+        get(url)
+      end
+
+      def delete_webhook(id:)
+        delete("webhooks/#{id}")
+      end
+
+      def update_webhook(id:, url:, events:, is_active: true)
+        put("webhooks/#{id}", {url: url, events: events, is_active: is_active})
       end
 
       private
@@ -66,6 +93,14 @@ module PhylloWrapper
 
       def post(url, body)
         HTTParty.post("#{base_url}/#{url}", { headers: headers , body: body.to_json})
+      end
+
+      def delete(url)
+        HTTParty.delete("#{base_url}/#{url}", { headers: headers }).parsed_response
+      end
+
+      def put(url, body)
+        HTTParty.put("#{base_url}/#{url}", { headers: headers, body: body.to_json })
       end
     end
 
