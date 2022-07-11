@@ -30,8 +30,8 @@ module PhylloWrapper
         get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
 
-      def contents(account_id: nil, limit: 10, offset: 0)
-        get("social/contents?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
+      def contents(account_id: nil, limit: 10, offset: 0, filters: "")
+        get("social/contents?account_id=#{account_id}&limit=#{limit}&offset=#{offset}&filters=(#{filters})")["data"]
       end
 
       def user_by_external_id(external_id)
