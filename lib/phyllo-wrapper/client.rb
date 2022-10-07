@@ -26,6 +26,10 @@ module PhylloWrapper
         get("profiles/#{id}")
       end
 
+      def content(id)
+        get("social/contents/#{id}")
+      end
+
       def profiles(account_id: nil, limit: 10, offset: 0)
         get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
