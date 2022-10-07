@@ -26,6 +26,10 @@ module PhylloWrapper
         get("profiles/#{id}")
       end
 
+      def content(id)
+        get("social/contents/#{id}")
+      end
+
       def profiles(account_id: nil, limit: 10, offset: 0)
         get("profiles?account_id=#{account_id}&limit=#{limit}&offset=#{offset}")["data"]
       end
@@ -47,7 +51,9 @@ module PhylloWrapper
       end
 
       def work_platforms(name: nil, limit: 10, offset: 0)
-        get("work-platforms?limit=#{limit}&offset=#{offset}&name=#{name}")["data"]
+        url = "work-platforms?limit=#{limit}&offset=#{offset}"
+        url << "&name=#{name}" if name
+        get(url)["data"]
       end
 
       def create_webhook(url:, events:)
