@@ -9,11 +9,11 @@ Gem::Specification.new do |spec|
   spec.version     = Phyllo::VERSION
   spec.authors     = ["Augusto Zangrandi"]
   spec.email       = ["augustozangrandi@gmail.com"]
-  spec.homepage    = "https://www.getphyllo.com"
+  spec.homepage    = "https://github.com/zangrandi/phyllo"
   spec.summary     = "Phyllo Ruby Wrapper"
-  spec.description = "Phylo Ruby Wrapper"
+  spec.description = "Phyllo Ruby Wrapper"
   spec.license     = "MIT"
-  spec.required_ruby_version = ">= 2.5.1"
+  spec.required_ruby_version = ">= 1.9.3"
 
   spec.add_dependency "httparty", "~> 0.18.1"
 end
