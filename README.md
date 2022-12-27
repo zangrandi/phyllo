@@ -1,2 +1,2 @@
-# phyllo-wrapper
-Wrapper for Phyllo API
+# Phyllo
+Ruby Wrapper for Phyllo API

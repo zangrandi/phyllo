@@ -1,17 +1,17 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "phyllo-wrapper/version"
+require "phyllo/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "phyllo-wrapper"
+  spec.name        = "Phyllo"
   spec.version     = PhylloWrapper::VERSION
-  spec.authors     = ["Magiclinks"]
-  spec.email       = ["augusto@magiclinks.com"]
-  spec.homepage    = "https://www.magiclinks.com"
-  spec.summary     = "Phyllo Wrapper"
-  spec.description = "Phylo Wrapper"
+  spec.authors     = ["Augusto Zangrando"]
+  spec.email       = ["augustozangrando@gmail.com"]
+  spec.homepage    = "https://www.getphyllo.com"
+  spec.summary     = "Phyllo Ruby Wrapper"
+  spec.description = "Phylo Ruby Wrapper"
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

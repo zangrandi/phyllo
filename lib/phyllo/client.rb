@@ -1,4 +1,4 @@
-module PhylloWrapper
+module Phyllo
   class Client
     class << self
       attr_accessor :configuration
