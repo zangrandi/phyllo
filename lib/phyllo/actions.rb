@@ -1,3 +1,5 @@
+require 'httparty'
+
 module Phyllo
   module Actions
     def headers

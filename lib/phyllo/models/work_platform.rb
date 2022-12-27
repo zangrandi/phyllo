@@ -1,10 +1,6 @@
-require 'phyllo/actions'
-
 module Phyllo
   module Models
-    class WorkPlatform
-      include Actions
-
+    class WorkPlatform < Base
       def path
         'work-platforms'
       end

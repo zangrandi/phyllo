@@ -1,10 +1,8 @@
-require 'phyllo/actions'
+require_relative '../actions'
 
 module Phyllo
   module Models
-    class Content
-      include Actions
-
+    class Content < Base
       def path
         'social/content'
       end

@@ -1,10 +1,6 @@
-require 'phyllo/actions'
-
 module Phyllo
   module Models
-    class Account
-      include Actions
-
+    class Account < Base
       def path
         'accounts'
       end

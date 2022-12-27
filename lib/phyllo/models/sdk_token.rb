@@ -1,10 +1,6 @@
-require 'phyllo/actions'
-
 module Phyllo
   module Models
-    class SdkToken
-      include Actions
-
+    class SdkToken < Base
       def path
         'sdk-tokens'
       end

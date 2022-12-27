@@ -1,10 +1,6 @@
-require 'phyllo/actions'
-
 module Phyllo
   module Models
-    class Webhook
-      include Actions
-
+    class Webhook < Base
       def path
         'webhooks'
       end
