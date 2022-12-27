@@ -5,10 +5,8 @@ module Phyllo
         'work-platforms'
       end
 
-      def work_platforms(name: nil, limit: 10, offset: 0)
-        url = "#{path}?limit=#{limit}&offset=#{offset}"
-        url << "&name=#{name}" if name
-        get(url)["data"]
+      def all(limit: 10, offset: 0)
+        get("#{path}?limit=#{limit}&offset=#{offset}")["data"]
       end
     end
   end

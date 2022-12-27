@@ -1,5 +1,3 @@
-require_relative '../actions'
-
 module Phyllo
   module Models
     class Content < Base
