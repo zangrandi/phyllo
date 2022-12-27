@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary     = "Phyllo Ruby Wrapper"
   spec.description = "Phylo Ruby Wrapper"
   spec.license     = "MIT"
+  spec.required_ruby_version = ">= 2.5.1"
 
   spec.add_dependency "httparty", "~> 0.18.1"
 end
